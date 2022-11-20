@@ -7,15 +7,15 @@ import { AppComponent } from './app.component';
 import { NgxFormsModule } from 'ngx-forms';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgxFormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgxFormsModule,
+    ]
 })
 export class AppModule { }
