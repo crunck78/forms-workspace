@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { NgxFormsModule } from 'ngx-forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -16,6 +17,7 @@ import { NgxFormsModule } from 'ngx-forms';
         BrowserModule,
         AppRoutingModule,
         NgxFormsModule,
+        BrowserAnimationsModule,
     ]
 })
 export class AppModule { }

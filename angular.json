@@ -64,6 +64,7 @@
               "projects/sandbox-demo/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/sandbox-demo/src/styles.scss"
             ],
             "scripts": []
@@ -132,6 +133,7 @@
               "projects/sandbox-demo/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/sandbox-demo/src/styles.scss"
             ],
             "scripts": []
