@@ -8,8 +8,8 @@ export class NgxFormsService {
 
   private static counter = 0;
 
-  currentSection: number = 0;
-  currentSection$ = new BehaviorSubject(0);
+  currentSection: number = 1;
+  currentSection$ = new BehaviorSubject(1);
   sections: any[] = [];
 
   constructor() {
@@ -19,8 +19,7 @@ export class NgxFormsService {
   }
 
   appendSection(){
-    NgxFormsService.counter++;
-    this.sections.push(NgxFormsService.counter);
+    this.sections.push(++NgxFormsService.counter);
     return NgxFormsService.counter;
   }
 
