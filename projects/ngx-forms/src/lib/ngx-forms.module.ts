@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { NgxFormsComponent } from './ngx-forms.component';
 import { NoQuestionComponent } from './no-question/no-question.component';
@@ -14,6 +15,9 @@ import { NgxFormHeaderComponent } from './ngx-form-header/ngx-form-header.compon
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 import { NgxFormsDirective } from './ngx-forms.directive';
 import { NgxFormsPipe } from './ngx-forms.pipe';
 
@@ -37,7 +41,11 @@ import { NgxFormsPipe } from './ngx-forms.pipe';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    CommonModule
+    MatInputModule,
+    MatFormFieldModule,
+
+    CommonModule,
+    FormsModule
   ],
   exports: [
     NgxFormsComponent,
