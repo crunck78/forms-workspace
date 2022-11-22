@@ -10,6 +10,10 @@ import { QuestionSubmitterComponent } from './question-submitter/question-submit
 import { NgxFormNavComponent } from './ngx-form-nav/ngx-form-nav.component';
 import { NgxFormHeaderComponent } from './ngx-form-header/ngx-form-header.component';
 
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +29,9 @@ import { NgxFormHeaderComponent } from './ngx-form-header/ngx-form-header.compon
     NgxFormHeaderComponent
   ],
   imports: [
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule
   ],
   exports: [
     NgxFormsComponent,
