@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxFormsService } from '../ngx-forms.service';
 
 @Component({
   selector: 'lib-ngx-form-nav',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NgxFormNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ngxs : NgxFormsService) { }
 
   ngOnInit(): void {
+  }
+
+  previousSection(){
+    this.ngxs.previous();
+  }
+
+  nextSection(){
+    this.ngxs.next();
   }
 
 }
