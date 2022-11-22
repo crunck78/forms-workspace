@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxFormsService } from '../ngx-forms.service';
 
 @Component({
   selector: 'lib-no-question',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoQuestionComponent implements OnInit {
 
-  constructor() { }
+  id!: number;
+  constructor(public ngxs: NgxFormsService) {
+    this.id = this.ngxs.appendSection();
+  }
 
   ngOnInit(): void {
   }
