@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxFormsService } from '../ngx-forms.service';
+
 
 @Component({
   selector: 'lib-text-question',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TextQuestionComponent implements OnInit {
 
-  constructor() { }
+  id!: number;
+
+  constructor(public ngxs: NgxFormsService) {
+    this.id = this.ngxs.appendSection();
+  }
 
   ngOnInit(): void {
   }
