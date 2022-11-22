@@ -10,10 +10,4 @@
         overflow-y: hidden;
         position: relative;
     }
-
-    main>* {
-        position: absolute;
-        inset: 0;
-        overflow-y: auto;
-    }
 }
