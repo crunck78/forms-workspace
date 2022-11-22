@@ -1,21 +1,34 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NgxFormsService {
 
-  static counter = 0;
+  private static counter = 0;
 
   currentSection: number = 0;
-
+  currentSection$ = new BehaviorSubject(0);
   sections: any[] = [];
 
-  constructor() {}
+  constructor() {
+    this.currentSection$.subscribe((currentSection)=>{
+      console.log(currentSection);
+    });
+  }
 
   appendSection(){
     NgxFormsService.counter++;
     this.sections.push(NgxFormsService.counter);
-    console.log(this.sections);
+    return NgxFormsService.counter;
+  }
+
+  previous(){
+    this.currentSection$.next(--this.currentSection);
+  }
+
+  next(){
+    this.currentSection$.next(++this.currentSection);
   }
 }
