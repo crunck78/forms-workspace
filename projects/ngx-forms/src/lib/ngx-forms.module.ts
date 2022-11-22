@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { NgxFormsComponent } from './ngx-forms.component';
 import { NoQuestionComponent } from './no-question/no-question.component';
@@ -13,6 +14,8 @@ import { NgxFormHeaderComponent } from './ngx-form-header/ngx-form-header.compon
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { NgxFormsDirective } from './ngx-forms.directive';
+import { NgxFormsPipe } from './ngx-forms.pipe';
 
 
 @NgModule({
@@ -26,12 +29,15 @@ import {MatIconModule} from '@angular/material/icon';
     QuestionTitleComponent,
     QuestionSubmitterComponent,
     NgxFormNavComponent,
-    NgxFormHeaderComponent
+    NgxFormHeaderComponent,
+    NgxFormsDirective,
+    NgxFormsPipe
   ],
   imports: [
     MatCardModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    CommonModule
   ],
   exports: [
     NgxFormsComponent,
