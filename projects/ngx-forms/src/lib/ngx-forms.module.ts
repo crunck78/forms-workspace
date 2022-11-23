@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
+import { Input, NgModule } from '@angular/core';
 import { NgxFormsComponent } from './ngx-forms.component';
 import { NoQuestionComponent } from './no-question/no-question.component';
 import { TextQuestionComponent } from './text-question/text-question.component';
@@ -20,6 +20,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 
 import { NgxFormsDirective } from './ngx-forms.directive';
 import { NgxFormsPipe } from './ngx-forms.pipe';
+import { InputQuestionComponent } from './input-question/input-question.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { NgxFormsPipe } from './ngx-forms.pipe';
     NgxFormNavComponent,
     NgxFormHeaderComponent,
     NgxFormsDirective,
-    NgxFormsPipe
+    NgxFormsPipe,
+    InputQuestionComponent
   ],
   imports: [
     MatCardModule,
@@ -50,7 +52,8 @@ import { NgxFormsPipe } from './ngx-forms.pipe';
   exports: [
     NgxFormsComponent,
     NoQuestionComponent,
-    TextQuestionComponent
+    TextQuestionComponent,
+    InputQuestionComponent
   ]
 })
 export class NgxFormsModule { }
