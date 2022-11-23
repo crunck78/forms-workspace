@@ -6,10 +6,10 @@ import { NoQuestionComponent } from './question-types/components/no-question/no-
 import { TextQuestionComponent } from './question-types/components/text-question/text-question.component';
 import { InputQuestionComponent } from './question-types/components/input-question/input-question.component';
 import { PtsDirective } from './pts.directive';
-import { QuestionHeaderComponent } from './question-header/question-header.component';
-import { QuestionFooterComponent } from './question-footer/question-footer.component';
-import { QuestionTitleComponent } from './question-title/question-title.component';
-import { QuestionSubmitterComponent } from './question-submitter/question-submitter.component';
+import { QuestionHeaderComponent } from './question-types/child-components/question-header/question-header.component';
+import { QuestionFooterComponent } from './question-types/child-components/question-footer/question-footer.component';
+import { QuestionTitleComponent } from './question-types/child-components/question-title/question-title.component';
+import { QuestionSubmitterComponent } from './question-types/child-components/question-submitter/question-submitter.component';
 import { NgxFormNavComponent } from './ngx-form-nav/ngx-form-nav.component';
 import { NgxFormHeaderComponent } from './ngx-form-header/ngx-form-header.component';
 
