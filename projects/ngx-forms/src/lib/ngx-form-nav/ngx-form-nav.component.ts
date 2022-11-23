@@ -8,7 +8,7 @@ import { NgxFormsService } from '../ngx-forms.service';
 })
 export class NgxFormNavComponent implements OnInit {
 
-  constructor(private ngxs : NgxFormsService) { }
+  constructor(public ngxs : NgxFormsService) { }
 
   ngOnInit(): void {
   }

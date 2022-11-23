@@ -1,6 +1,6 @@
-<button (click)="previousSection()" mat-raised-button>
+<button [disabled]="ngxs.currentSection == 1" (click)="previousSection()" mat-raised-button>
  <mat-icon>keyboard_arrow_up</mat-icon>
 </button>
-<button (click)="nextSection()" mat-raised-button>
+<button [disabled]="ngxs.currentSection > ngxs.sections.length - 1" (click)="nextSection()" mat-raised-button>
     <mat-icon>keyboard_arrow_down</mat-icon>
 </button>
