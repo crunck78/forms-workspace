@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'lib-question-title',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./question-title.component.scss']
 })
 export class QuestionTitleComponent implements OnInit {
+
+  @Input() id! : number;
 
   constructor() { }
 
