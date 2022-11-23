@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgxFormsService } from '../ngx-forms.service';
+import { NgxFormsService } from '../../../ngx-forms.service';
 
 
 @Component({

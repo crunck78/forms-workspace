@@ -2,8 +2,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Input, NgModule } from '@angular/core';
 import { NgxFormsComponent } from './ngx-forms.component';
-import { NoQuestionComponent } from './no-question/no-question.component';
-import { TextQuestionComponent } from './text-question/text-question.component';
+import { NoQuestionComponent } from './question-types/components/no-question/no-question.component';
+import { TextQuestionComponent } from './question-types/components/text-question/text-question.component';
+import { InputQuestionComponent } from './question-types/components/input-question/input-question.component';
 import { PtsDirective } from './pts.directive';
 import { QuestionHeaderComponent } from './question-header/question-header.component';
 import { QuestionFooterComponent } from './question-footer/question-footer.component';
@@ -20,7 +21,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 
 import { NgxFormsDirective } from './ngx-forms.directive';
 import { NgxFormsPipe } from './ngx-forms.pipe';
-import { InputQuestionComponent } from './input-question/input-question.component';
+
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { InputQuestionComponent } from './input-question/input-question.componen
     NgxFormsComponent,
     NoQuestionComponent,
     TextQuestionComponent,
+    InputQuestionComponent,
     PtsDirective,
     QuestionHeaderComponent,
     QuestionFooterComponent,
@@ -37,7 +39,7 @@ import { InputQuestionComponent } from './input-question/input-question.componen
     NgxFormHeaderComponent,
     NgxFormsDirective,
     NgxFormsPipe,
-    InputQuestionComponent
+
   ],
   imports: [
     MatCardModule,
