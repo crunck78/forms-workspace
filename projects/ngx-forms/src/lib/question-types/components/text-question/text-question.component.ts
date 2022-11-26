@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { NgxFormsService } from '../../../ngx-forms.service';
 
 
@@ -10,12 +11,14 @@ import { NgxFormsService } from '../../../ngx-forms.service';
 export class TextQuestionComponent implements OnInit {
 
   id!: number;
+  textArea = new FormControl('');
 
   constructor(public ngxs: NgxFormsService) {
     this.id = this.ngxs.appendSection();
   }
 
   ngOnInit(): void {
+    this.ngxs.appendControl(this.textArea);
   }
 
 }

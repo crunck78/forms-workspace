@@ -2,7 +2,9 @@
 <div libNgxForms *ngIf="(ngxs.currentSection$ | async) == id" class="question-wrapper">
     <mat-card>
         <mat-card-title>
-            <lib-question-title [id]="id"></lib-question-title>
+            <lib-question-title [id]="id">
+                <ng-content select="[questionTitle]"></ng-content>
+            </lib-question-title>
         </mat-card-title>
 
         <mat-card-content>
@@ -11,7 +13,7 @@
 
         <mat-form-field>
             <mat-label>Input</mat-label>
-            <textarea  matInput type="text"></textarea>
+            <textarea [formControl]="textArea"  matInput type="text"></textarea>
         </mat-form-field>
 
 
