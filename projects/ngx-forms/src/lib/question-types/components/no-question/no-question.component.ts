@@ -16,4 +16,6 @@ export class NoQuestionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
+
 }

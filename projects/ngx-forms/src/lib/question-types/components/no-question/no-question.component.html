@@ -2,7 +2,9 @@
 <div libNgxForms *ngIf="ngxs.currentSection == id" class="question-wrapper">
     <mat-card>
         <mat-card-title>
-            <lib-question-title [id]="id"></lib-question-title>
+            <lib-question-title [id]="id">
+                <ng-content select="[questionTitle]"></ng-content>
+            </lib-question-title>
         </mat-card-title>
 
         <mat-card-content>
