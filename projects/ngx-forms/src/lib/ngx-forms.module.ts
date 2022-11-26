@@ -22,6 +22,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { NgxFormsDirective } from './ngx-forms.directive';
 import { NgxFormsPipe } from './ngx-forms.pipe';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -49,7 +51,8 @@ import { NgxFormsPipe } from './ngx-forms.pipe';
     MatFormFieldModule,
 
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     NgxFormsComponent,
