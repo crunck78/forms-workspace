@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApplyFormAnimations } from './ngx-form.animation';
 import { NgxFormsService } from './ngx-forms.service';
 
