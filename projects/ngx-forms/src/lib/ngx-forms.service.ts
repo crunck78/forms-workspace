@@ -36,7 +36,7 @@ export class NgxFormsService {
     this.currentSection$.next(++this.currentSection);
   }
 
-  appendControl(control: FormControl){
+  appendControl(control: FormControl | FormArray){
     this.formArray.push(control);
   }
 }

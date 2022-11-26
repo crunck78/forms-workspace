@@ -23,6 +23,8 @@ import { NgxFormsDirective } from './ngx-forms.directive';
 import { NgxFormsPipe } from './ngx-forms.pipe';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { SingleChoiceQuestionComponent } from './question-types/components/single-choice-question/single-choice-question.component';
+import { QuestionChoiceComponent } from './question-types/child-components/question-choice/question-choice.component';
 
 
 
@@ -41,6 +43,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NgxFormHeaderComponent,
     NgxFormsDirective,
     NgxFormsPipe,
+    SingleChoiceQuestionComponent,
+    QuestionChoiceComponent,
 
   ],
   imports: [
@@ -58,7 +62,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     NgxFormsComponent,
     NoQuestionComponent,
     TextQuestionComponent,
-    InputQuestionComponent
+    InputQuestionComponent,
+    SingleChoiceQuestionComponent,
+    QuestionChoiceComponent
   ]
 })
 export class NgxFormsModule { }
