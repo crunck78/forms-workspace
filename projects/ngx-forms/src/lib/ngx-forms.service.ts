@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -12,10 +13,14 @@ export class NgxFormsService {
   currentSection$ = new BehaviorSubject(1);
   sections: any[] = [];
 
-  constructor() {
+  formArray!: FormArray;
+
+  constructor(private formBuilder: FormBuilder) {
     this.currentSection$.subscribe((currentSection)=>{
       console.log(currentSection);
     });
+
+    this.formArray = this.formBuilder.array([]);
   }
 
   appendSection(){
@@ -29,5 +34,9 @@ export class NgxFormsService {
 
   next(){
     this.currentSection$.next(++this.currentSection);
+  }
+
+  appendControl(control: FormControl){
+    this.formArray.push(control);
   }
 }
