@@ -1,0 +1,18 @@
+:host {
+    .question-wrapper{
+        display: block;
+        padding: 20px;
+        //background-color: aqua;
+
+        position: absolute;
+        inset: 0;
+        overflow-y: auto;
+
+        display: flex;
+        flex-direction: column;
+
+        mat-card {
+            margin: auto 0;
+        }
+    }
+}

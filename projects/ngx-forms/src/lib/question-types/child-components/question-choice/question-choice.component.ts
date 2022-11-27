@@ -19,15 +19,18 @@ export class QuestionChoiceComponent implements OnInit, AfterContentInit {
 
   ngAfterContentInit(): void {
     this.value = this.valueDirective.el.nativeElement.innerText;
-    this.value$.next(this.value);
+    // this.value$.next(this.value);
   }
 
   ngOnInit(): void {
   }
 
   select(){
+    if(this.color == 'primary')
+      this.value$.next('');
+    else
     this.value$.next(this.value);
-    this.color = 'primary';
+    //this.color = 'primary';
   }
 
 }

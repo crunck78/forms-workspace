@@ -26,7 +26,7 @@ export class SingleChoiceQuestionComponent implements OnInit, AfterContentInit {
     this.questionChoices.forEach(qc => qc.value$.subscribe(value => {
       this.formControl.setValue(value);
       this.unselectAll();
-      qc.color = 'primary';
+      qc.color = value ? 'primary' : '';
     }));
   }
 
