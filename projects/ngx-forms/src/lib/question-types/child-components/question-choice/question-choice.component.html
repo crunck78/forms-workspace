@@ -1,3 +1,3 @@
-<button mat-raised-button>
-    <ng-content select="[questionChoiceTitle]"></ng-content>
+<button (click)="select()" mat-raised-button [color]="color">
+    <ng-content select="[libQuestionChoiceValue]"></ng-content>
 </button>
