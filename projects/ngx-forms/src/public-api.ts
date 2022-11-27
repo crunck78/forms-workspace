@@ -9,4 +9,5 @@ export * from './lib/question-types/components/text-question/text-question.compo
 export * from './lib/question-types/components/input-question/input-question.component';
 export * from './lib/question-types/components/single-choice-question/single-choice-question.component';
 export * from './lib/question-types/child-components/question-choice/question-choice.component';
+export * from './lib/question-types/child-components/question-choice/question-choice-value.directive';
 export * from './lib/ngx-forms.module';
