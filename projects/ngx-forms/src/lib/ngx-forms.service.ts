@@ -21,6 +21,7 @@ export class NgxFormsService {
     });
 
     this.formArray = this.formBuilder.array([]);
+    this.formArray.valueChanges.subscribe(values => console.log(values));
   }
 
   appendSection(){
