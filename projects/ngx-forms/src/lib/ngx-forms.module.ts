@@ -28,6 +28,7 @@ import { QuestionChoiceComponent } from './question-types/child-components/quest
 import { SingleChoiceQuestionDirective } from './question-types/components/single-choice-question/single-choice-question.directive';
 import { QuestionChoiceValueDirective } from './question-types/child-components/question-choice/question-choice-value.directive';
 import { MultipleChoiceQuestionComponent } from './question-types/components/multiple-choice-question/multiple-choice-question.component';
+import { BooleanChoiceQuestionComponent } from './question-types/components/boolean-choice-question/boolean-choice-question.component';
 
 
 
@@ -51,6 +52,7 @@ import { MultipleChoiceQuestionComponent } from './question-types/components/mul
     SingleChoiceQuestionDirective,
     QuestionChoiceValueDirective,
     MultipleChoiceQuestionComponent,
+    BooleanChoiceQuestionComponent,
 
   ],
   imports: [
@@ -72,7 +74,8 @@ import { MultipleChoiceQuestionComponent } from './question-types/components/mul
     SingleChoiceQuestionComponent,
     QuestionChoiceComponent,
     QuestionChoiceValueDirective,
-    MultipleChoiceQuestionComponent
+    MultipleChoiceQuestionComponent,
+    BooleanChoiceQuestionComponent
   ]
 })
 export class NgxFormsModule { }

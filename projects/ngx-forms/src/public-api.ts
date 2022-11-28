@@ -13,4 +13,5 @@ export * from './lib/question-types/components/single-choice-question/single-cho
 export * from './lib/question-types/child-components/question-choice/question-choice.component';
 export * from './lib/question-types/child-components/question-choice/question-choice-value.directive';
 export * from './lib/question-types/components/multiple-choice-question/multiple-choice-question.component';
+export * from './lib/question-types/components/boolean-choice-question/boolean-choice-question.component';
 export * from './lib/ngx-forms.module';
