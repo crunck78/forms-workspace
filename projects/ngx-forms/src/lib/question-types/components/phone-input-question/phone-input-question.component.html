@@ -1,0 +1,34 @@
+<!-- <lib-question-header></lib-question-header> -->
+<div libNgxForms *ngIf="(ngxs.currentSection$ | async) == id" class="question-wrapper">
+    <mat-card>
+        <mat-card-title>
+            <lib-question-title [id]="id">
+                <ng-content select="[questionTitle]"></ng-content>
+            </lib-question-title>
+        </mat-card-title>
+
+        <mat-card-content>
+            <ng-content></ng-content>
+        </mat-card-content>
+
+        <mat-form-field>
+            <mat-select>
+                <mat-option *ngFor="let country of COUNTRY_CODES" [value]="country.dial_code">
+                    <img src="assets/flags/{{country.code | lowercase}}.png" alt="">
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+
+
+        <mat-form-field>
+            <mat-label>Input</mat-label>
+            <input [formControl]="input" matInput type="tel">
+        </mat-form-field>
+
+
+        <mat-card-actions align="start">
+            <lib-question-submitter></lib-question-submitter>
+        </mat-card-actions>
+    </mat-card>
+</div>
