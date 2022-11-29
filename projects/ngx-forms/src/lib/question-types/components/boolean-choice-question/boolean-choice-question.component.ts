@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewInit, Component, ContentChildren, forwardRef, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { AfterContentInit, AfterViewChecked, AfterViewInit, Component, ContentChildren, forwardRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { NgxFormsService } from '../../../ngx-forms.service';
 import { QuestionChoiceComponent } from '../../child-components/question-choice/question-choice.component';
@@ -10,7 +10,15 @@ import { QuestionChoiceComponent } from '../../child-components/question-choice/
 })
 export class BooleanChoiceQuestionComponent implements OnInit, AfterViewInit {
 
-  @ViewChildren(QuestionChoiceComponent) questionChoices!: QueryList<QuestionChoiceComponent>;
+  private questionChoicesPlaceholder!: QueryList<QuestionChoiceComponent>;
+
+  @ViewChildren(QuestionChoiceComponent) set content(content:QueryList<QuestionChoiceComponent>) {
+     if(content) { // initially setter gets called with undefined
+          this.questionChoicesPlaceholder = content;
+     }
+  }
+
+  //@ViewChildren(QuestionChoiceComponent) questionChoices!: QueryList<QuestionChoiceComponent>;
 
   id!: number;
   formControl = new FormControl('');
@@ -21,16 +29,19 @@ export class BooleanChoiceQuestionComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log('QuestionChoiceComponent', this.questionChoices);
-    this.questionChoices.forEach(qc => qc.value$.subscribe(value => {
-      this.formControl.setValue(value);
-      this.unselectAll();
-      qc.color = value ? 'primary' : '';
-    }));
+    console.log('QuestionChoiceComponent', this.questionChoicesPlaceholder);
+    this.questionChoicesPlaceholder.forEach((qc) => {
+      qc.value$.subscribe((value) => {
+        console.log('Value change: ', value);
+        this.formControl.setValue(value);
+        this.unselectAll();
+        qc.color = value ? 'primary' : '';
+      })
+    });
   }
 
   unselectAll() {
-    this.questionChoices.forEach(qc => qc.color = '');
+    this.questionChoicesPlaceholder.forEach(qc => qc.color = '');
   }
 
   ngOnInit(): void {
