@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewChecked, AfterViewInit, Component, ContentChildren, forwardRef, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { AfterContentInit, AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, ContentChildren, forwardRef, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { NgxFormsService } from '../../../ngx-forms.service';
 import { QuestionChoiceComponent } from '../../child-components/question-choice/question-choice.component';
@@ -12,32 +12,43 @@ export class BooleanChoiceQuestionComponent implements OnInit, AfterViewInit {
 
   private questionChoicesPlaceholder!: QueryList<QuestionChoiceComponent>;
 
-  @ViewChildren(QuestionChoiceComponent) set content(content:QueryList<QuestionChoiceComponent>) {
-     if(content) { // initially setter gets called with undefined
-          this.questionChoicesPlaceholder = content;
-     }
+  @ViewChildren(QuestionChoiceComponent, {emitDistinctChangesOnly: true}) set content(content: QueryList<QuestionChoiceComponent>) {
+    if (content) { // initially setter gets called with undefined
+      this.questionChoicesPlaceholder = content;
+    }
   }
-
-  //@ViewChildren(QuestionChoiceComponent) questionChoices!: QueryList<QuestionChoiceComponent>;
 
   id!: number;
   formControl = new FormControl('');
+  initialized = false;
 
   constructor(public ngxs: NgxFormsService) {
     this.id = this.ngxs.appendSection();
     this.ngxs.appendControl(this.formControl);
+    console.log('Boolean Choice');
   }
 
   ngAfterViewInit(): void {
-    console.log('QuestionChoiceComponent', this.questionChoicesPlaceholder);
-    this.questionChoicesPlaceholder.forEach((qc) => {
-      qc.value$.subscribe((value) => {
-        console.log('Value change: ', value);
-        this.formControl.setValue(value);
-        this.unselectAll();
-        qc.color = value ? 'primary' : '';
-      })
+    this.ngxs.currentSection$.subscribe((currentSection) => {
+      console.log(currentSection, this.initialized);
+      if (currentSection == this.id && !this.initialized) {
+        console.log('reached boolean choice', this.id);
+        console.log(this.questionChoicesPlaceholder);
+        this.initialized = true;
+        setTimeout(()=>{
+          this.questionChoicesPlaceholder.forEach((qc) => {
+            console.log(qc);
+            qc.value$.subscribe((value) => {
+              console.log('Value change: ', value);
+              this.formControl.setValue(value);
+              this.unselectAll();
+              qc.color = value ? 'primary' : '';
+            })
+          });
+        }, 0)
+      }
     });
+
   }
 
   unselectAll() {
@@ -45,6 +56,7 @@ export class BooleanChoiceQuestionComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+
   }
 
 }
