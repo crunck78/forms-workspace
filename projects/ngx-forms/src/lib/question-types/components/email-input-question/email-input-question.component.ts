@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { NgxFormsService } from 'ngx-forms';
+import { NgxFormsService } from '../../../ngx-forms.service';
 
 @Component({
   selector: 'lib-email-input-question',
