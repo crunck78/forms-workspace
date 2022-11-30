@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { NgxFormsService } from '../../../ngx-forms.service';
 
@@ -11,6 +11,7 @@ export class EmailInputQuestionComponent implements OnInit {
 
   id!: number;
   input = new FormControl('');
+  @Input() placeholder: string  = "example@mail.com";
 
   constructor(public ngxs: NgxFormsService) {
     this.id = this.ngxs.appendSection();

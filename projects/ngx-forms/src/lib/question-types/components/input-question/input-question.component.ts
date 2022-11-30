@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { NgxFormsService } from '../../../ngx-forms.service';
 
@@ -11,6 +11,7 @@ export class InputQuestionComponent implements OnInit {
 
   id!: number;
   input = new FormControl('');
+  @Input() placeholder: string = "Input";
 
   constructor(public ngxs: NgxFormsService) {
     this.id = this.ngxs.appendSection();

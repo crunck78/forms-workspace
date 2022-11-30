@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatSelectChange } from '@angular/material/select';
 import { NgxFormsService } from '../../../ngx-forms.service';
@@ -17,6 +17,7 @@ export class PhoneInputQuestionComponent implements OnInit {
   id!: number;
   input = new FormControl('');
   dialCode!: string;
+  @Input() placeholder: string = "1234567890";
   readonly COUNTRY_CODES = COUNTRY_CODES;
 
   constructor(public ngxs: NgxFormsService) {
