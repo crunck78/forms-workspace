@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatSelectChange } from '@angular/material/select';
 import { NgxFormsService } from '../../../ngx-forms.service';
 import { COUNTRY_CODES } from './country-codes';
 
@@ -15,6 +16,7 @@ export class PhoneInputQuestionComponent implements OnInit {
 
   id!: number;
   input = new FormControl('');
+  dialCode!: string;
   readonly COUNTRY_CODES = COUNTRY_CODES;
 
   constructor(public ngxs: NgxFormsService) {
@@ -24,6 +26,10 @@ export class PhoneInputQuestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.ngxs.appendControl(this.input);
+  }
+
+  onCountryChange(event : MatSelectChange){
+
   }
 
 }

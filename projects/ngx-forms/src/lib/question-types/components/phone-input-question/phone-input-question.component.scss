@@ -13,6 +13,31 @@
 
         mat-card {
             margin: auto 0;
+            .fields-wrapper{
+                display: flex;
+                gap: 6px;
+                .form-field-country{
+                    width: fit-content;
+                }
+            }
         }
     }
+}
+
+// .mat-select-panel-wrap{
+//     width: 60px !important;
+//     flex-basis: unset !important;
+// }
+
+.flag-img{
+    width: 50px;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.option-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
