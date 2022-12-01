@@ -14,11 +14,12 @@
         <mat-form-field>
             <mat-label>{{placeholder}}</mat-label>
             <input [formControl]="input" matInput type="email">
+            <mat-error *ngIf="input.invalid">{{ngxs.getErrorMessage(input)}}</mat-error>
         </mat-form-field>
 
 
         <mat-card-actions align="start">
-            <lib-question-submitter></lib-question-submitter>
+            <lib-question-submitter [ngxInput]="input"></lib-question-submitter>
         </mat-card-actions>
     </mat-card>
 </div>

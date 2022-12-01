@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { NgxFormsService } from '../../../ngx-forms.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { NgxFormsService } from '../../../ngx-forms.service';
 export class EmailInputQuestionComponent implements OnInit {
 
   id!: number;
-  input = new FormControl('');
+  input = new FormControl('',[ Validators.email, Validators.required]);
   @Input() placeholder: string  = "example@mail.com";
 
   constructor(public ngxs: NgxFormsService) {
