@@ -17,11 +17,11 @@ export class NgxFormsService {
 
   constructor(private formBuilder: FormBuilder) {
     this.currentSection$.subscribe((currentSection)=>{
-      console.log(currentSection);
+      //console.log(currentSection);
     });
 
     this.formArray = this.formBuilder.array([]);
-    this.formArray.valueChanges.subscribe(values => console.log(values));
+    //this.formArray.valueChanges.subscribe(values => console.log(values));
   }
 
   appendSection(){
@@ -39,5 +39,9 @@ export class NgxFormsService {
 
   appendControl(control: FormControl | FormArray){
     this.formArray.push(control);
+  }
+
+  getErrorMessage(inputControl : FormArray | FormControl){
+    return 'Invalid';
   }
 }
