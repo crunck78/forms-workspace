@@ -14,28 +14,30 @@
         <div class="fields-wrapper">
             <mat-form-field class="form-field-country">
                 <mat-label>
-                    Country
+                    Dial Code
                 </mat-label>
-                <mat-select (selectionChange)="onCountryChange($event)" [(ngModel)]="dialCode">
+                <mat-select [formControl]="input.controls[0]">
                     <mat-option *ngFor="let country of COUNTRY_CODES" [value]="country.dial_code">
-                        <div class="option-wrapper">
+                        <!-- <div class="option-wrapper">
                             <img class="flag-img" src="assets/flags/{{country.code | lowercase}}.png"
                                 alt="{{country.name}}">
-                            <span>{{country.name}}</span>
-                        </div>
+                            <span>{{country.code}}</span>
+                            <span>{{country.dial_code}}</span>
+                        </div> -->
+                        {{country.dial_code}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>{{placeholder}}</mat-label>
-                <input [formControl]="input" matInput type="tel">
+                <input (input)="handleInputPhoneNumber($any($event))" [formControl]="input.controls[1]" matInput type="tel" pattern="^-?(0|[1-9]\d*)?$">
             </mat-form-field>
         </div>
 
 
         <mat-card-actions align="start">
-            <lib-question-submitter></lib-question-submitter>
+            <lib-question-submitter [ngxInput]="input"></lib-question-submitter>
         </mat-card-actions>
     </mat-card>
 </div>
