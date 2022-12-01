@@ -16,4 +16,5 @@ export * from './lib/question-types/components/multiple-choice-question/multiple
 export * from './lib/question-types/components/boolean-choice-question/boolean-choice-question.component';
 export * from './lib/question-types/components/phone-input-question/phone-input-question.component';
 export * from './lib/question-types/components/email-input-question/email-input-question.component';
+export * from './lib/ngx-validators.directive';
 export * from './lib/ngx-forms.module';

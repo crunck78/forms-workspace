@@ -35,6 +35,7 @@ import { MultipleChoiceQuestionComponent } from './question-types/components/mul
 import { BooleanChoiceQuestionComponent } from './question-types/components/boolean-choice-question/boolean-choice-question.component';
 import { PhoneInputQuestionComponent } from './question-types/components/phone-input-question/phone-input-question.component';
 import { EmailInputQuestionComponent } from './question-types/components/email-input-question/email-input-question.component';
+import { NgxValidatorsDirective } from './ngx-validators.directive';
 
 
 
@@ -61,6 +62,7 @@ import { EmailInputQuestionComponent } from './question-types/components/email-i
     BooleanChoiceQuestionComponent,
     PhoneInputQuestionComponent,
     EmailInputQuestionComponent,
+    NgxValidatorsDirective,
 
   ],
   imports: [
@@ -86,7 +88,8 @@ import { EmailInputQuestionComponent } from './question-types/components/email-i
     MultipleChoiceQuestionComponent,
     BooleanChoiceQuestionComponent,
     PhoneInputQuestionComponent,
-    EmailInputQuestionComponent
+    EmailInputQuestionComponent,
+    NgxValidatorsDirective
   ]
 })
 export class NgxFormsModule { }
