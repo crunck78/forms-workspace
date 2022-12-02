@@ -29,7 +29,7 @@
     This is Boolean Choice Question
   </lib-boolean-choice-question> -->
 
-  <lib-single-choice-question>
+  <lib-single-choice-question [libNgxValidators]="[Validators.required]">
     <p questionTitle>
       Pick one of your Favorite.
     </p>
@@ -54,7 +54,7 @@
     </div>
   </lib-single-choice-question>
 
-  <lib-multiple-choice-question>
+  <lib-multiple-choice-question [libNgxValidators]="[ngxFormsS.requiredAtLeastOneSelection()]">
     <p questionTitle>
       Pick all your favorites.
     </p>
@@ -79,14 +79,14 @@
     </div>
   </lib-multiple-choice-question>
 
-  <lib-text-question>
+  <lib-text-question [libNgxValidators]="[Validators.required]">
     <p questionTitle>
       Tell us what are you thinking?
     </p>
     This is a Text Question. A Multiple Line Text Input.
   </lib-text-question>
 
-  <lib-input-question>
+  <lib-input-question [libNgxValidators]="[Validators.required]">
     <p questionTitle>
       What is your Name?
     </p>

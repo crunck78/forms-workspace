@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Validators } from '@angular/forms';
+import { NgxFormsService } from 'ngx-forms';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,9 @@ import { Validators } from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(public ngxFormsS : NgxFormsService){
+
+  }
   title = 'sandbox-demo';
   Validators = Validators;
 }
