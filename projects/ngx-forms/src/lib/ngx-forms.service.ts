@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -21,7 +21,7 @@ export class NgxFormsService {
     });
 
     this.formArray = this.formBuilder.array([]);
-    //this.formArray.valueChanges.subscribe(values => console.log(values));
+    this.formArray.valueChanges.subscribe(values => console.log(values));
   }
 
   appendSection(){
@@ -44,4 +44,13 @@ export class NgxFormsService {
   getErrorMessage(inputControl : FormArray | FormControl){
     return 'Invalid';
   }
+
+  requiredAtLeastOneSelection() {
+    return (formArray: FormArray): ValidationErrors | null => {
+        const noSelection = (controls: any) => {
+            return !controls.find((control: any) => control.value !== '');
+        };
+        return noSelection(formArray['controls']) ? { noSelection: true } : null;
+    };
+}
 }
