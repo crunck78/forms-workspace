@@ -16,7 +16,7 @@ export class NgxFormsService {
   formArray!: FormArray;
 
   constructor(private formBuilder: FormBuilder) {
-    this.currentSection$.subscribe((currentSection)=>{
+    this.currentSection$.subscribe((currentSection) => {
       //console.log(currentSection);
     });
 
@@ -24,33 +24,24 @@ export class NgxFormsService {
     this.formArray.valueChanges.subscribe(values => console.log(values));
   }
 
-  appendSection(){
+  appendSection() {
     this.sections.push(++NgxFormsService.counter);
     return NgxFormsService.counter;
   }
 
-  previous(){
+  previous() {
     this.currentSection$.next(--this.currentSection);
   }
 
-  next(){
+  next() {
     this.currentSection$.next(++this.currentSection);
   }
 
-  appendControl(control: FormControl | FormArray){
+  appendControl(control: FormControl | FormArray) {
     this.formArray.push(control);
   }
 
-  getErrorMessage(inputControl : FormArray | FormControl){
+  getErrorMessage(inputControl: FormArray | FormControl) {
     return 'Invalid';
   }
-
-  requiredAtLeastOneSelection() {
-    return (formArray: FormArray): ValidationErrors | null => {
-        const noSelection = (controls: any) => {
-            return !controls.find((control: any) => control.value !== '');
-        };
-        return noSelection(formArray['controls']) ? { noSelection: true } : null;
-    };
-}
 }

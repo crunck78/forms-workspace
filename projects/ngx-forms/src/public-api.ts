@@ -5,6 +5,7 @@
 import { from } from 'rxjs';
 
 export * from './lib/ngx-forms.service';
+export * from './lib/ngx-validators.service';
 export * from './lib/ngx-forms.component';
 export * from './lib/question-types/components/no-question/no-question.component';
 export * from './lib/question-types/components/text-question/text-question.component';
@@ -17,4 +18,5 @@ export * from './lib/question-types/components/boolean-choice-question/boolean-c
 export * from './lib/question-types/components/phone-input-question/phone-input-question.component';
 export * from './lib/question-types/components/email-input-question/email-input-question.component';
 export * from './lib/ngx-validators.directive';
+export * from './lib/ngx-question-invalid.directive';
 export * from './lib/ngx-forms.module';
