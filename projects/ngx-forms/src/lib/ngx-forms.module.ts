@@ -36,9 +36,6 @@ import { BooleanChoiceQuestionComponent } from './question-types/components/bool
 import { PhoneInputQuestionComponent } from './question-types/components/phone-input-question/phone-input-question.component';
 import { EmailInputQuestionComponent } from './question-types/components/email-input-question/email-input-question.component';
 import { NgxValidatorsDirective } from './ngx-validators.directive';
-
-
-
 @NgModule({
   declarations: [
     NgxFormsComponent,
