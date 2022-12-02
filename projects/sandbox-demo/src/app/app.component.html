@@ -7,15 +7,17 @@
     This is A No Question Card.
   </lib-no-question>
 
-<lib-phone-input-question [libNgxValidators]="[[Validators.required], [Validators.required]]" [placeholder]="'12345678901'">
+  <lib-phone-input-question [libNgxValidators]="[[Validators.required], [Validators.required]]"
+    [placeholder]="'12345678901'">
     <p questionTitle>
       What is your Phone Number?
     </p>
     This is A Phone Number Question Card.
   </lib-phone-input-question>
 
-  <lib-email-input-question [libNgxValidators]="[Validators.required, Validators.email]"
-    [placeholder]="'example@mail.com'">
+  <lib-email-input-question
+    [libNgxQuestionInvalid]="{email: 'Your Email does not Look like an Email Address', required: 'We realy need to know your Email!'}"
+    [libNgxValidators]="[Validators.required, Validators.email]" [placeholder]="'example@mail.com'">
     <p questionTitle>
       What is your Email?
     </p>
@@ -54,7 +56,7 @@
     </div>
   </lib-single-choice-question>
 
-  <lib-multiple-choice-question [libNgxValidators]="[ngxFormsS.requiredAtLeastOneSelection()]">
+  <lib-multiple-choice-question [libNgxValidators]="[Validators.requiredOneSelection()]">
     <p questionTitle>
       Pick all your favorites.
     </p>
