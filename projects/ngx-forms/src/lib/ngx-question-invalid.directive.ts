@@ -13,7 +13,7 @@ export class NgxQuestionInvalidDirective implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
+    this.comp.invalidMessages = changes['libNgxQuestionInvalid'].currentValue;
   }
 
 }
