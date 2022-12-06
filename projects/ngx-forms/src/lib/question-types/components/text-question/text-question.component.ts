@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { NgxFormsService } from '../../../ngx-forms.service';
-import { returnProvider } from '../../../ngx-question.model';
+import { Base, returnProvider } from '../../../ngx-question.model';
 
 
 @Component({
@@ -10,13 +10,13 @@ import { returnProvider } from '../../../ngx-question.model';
   styleUrls: ['./text-question.component.scss'],
   providers: [returnProvider(TextQuestionComponent)]
 })
-export class TextQuestionComponent implements OnInit {
+export class TextQuestionComponent extends Base implements OnInit {
 
-  id!: number;
-  input = new FormControl('');
   @Input() placeholder: string = "Text";
 
   constructor(public ngxs: NgxFormsService) {
+    super();
+    this.input = new FormControl('');
     this.id = this.ngxs.appendSection();
   }
 
