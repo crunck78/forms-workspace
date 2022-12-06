@@ -14,17 +14,18 @@ import { COUNTRY_CODES } from './country-codes';
   styleUrls: ['./phone-input-question.component.scss'],
   providers: [returnProvider(PhoneInputQuestionComponent)]
 })
-export class PhoneInputQuestionComponent implements OnInit, Base {
+export class PhoneInputQuestionComponent extends Base implements OnInit {
 
-  id!: number;
-  input = new FormArray([
-    new FormControl('+49'),
-    new FormControl('', Validators.pattern(/^-?(0|[1-9]\d*)?$/))
-  ]);
+
   @Input() placeholder: string = "1234567890";
   readonly COUNTRY_CODES = COUNTRY_CODES;
 
   constructor(public ngxs: NgxFormsService) {
+    super();
+    this.input = new FormArray([
+      new FormControl('+49'),
+      new FormControl('', Validators.pattern(/^-?(0|[1-9]\d*)?$/))
+    ]);
     this.id = this.ngxs.appendSection();
   }
 

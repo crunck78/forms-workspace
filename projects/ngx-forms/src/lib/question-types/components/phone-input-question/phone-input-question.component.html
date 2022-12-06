@@ -16,7 +16,7 @@
                 <mat-label>
                     Dial Code
                 </mat-label>
-                <mat-select [formControl]="input.controls[0]">
+                <mat-select [formControl]="$any(input).controls[0]">
                     <mat-option *ngFor="let country of COUNTRY_CODES" [value]="country.dial_code">
                         <!-- <div class="option-wrapper">
                             <img class="flag-img" src="assets/flags/{{country.code | lowercase}}.png"
@@ -31,7 +31,9 @@
 
             <mat-form-field>
                 <mat-label>{{placeholder}}</mat-label>
-                <input (input)="handleInputPhoneNumber($any($event))" [formControl]="input.controls[1]" matInput type="tel" pattern="^-?(0|[1-9]\d*)?$">
+                <input (input)="handleInputPhoneNumber($any($event))" [formControl]="$any(input).controls[1]" matInput
+                    type="tel" pattern="^-?(0|[1-9]\d*)?$">
+                <mat-error *ngIf="input.invalid && invalidMessages">{{getErrorMessage($any(input).controls[1])}}</mat-error>
             </mat-form-field>
         </div>
 
