@@ -25,21 +25,21 @@ export class BooleanChoiceQuestionComponent implements OnInit, AfterViewInit {
   constructor(public ngxs: NgxFormsService) {
     this.id = this.ngxs.appendSection();
     this.ngxs.appendControl(this.formControl);
-    console.log('Boolean Choice');
+    //console.log('Boolean Choice');
   }
 
   ngAfterViewInit(): void {
     this.ngxs.currentSection$.subscribe((currentSection) => {
-      console.log(currentSection, this.initialized);
+      //console.log(currentSection, this.initialized);
       if (currentSection == this.id && !this.initialized) {
-        console.log('reached boolean choice', this.id);
-        console.log(this.questionChoicesPlaceholder);
+        //console.log('reached boolean choice', this.id);
+        //console.log(this.questionChoicesPlaceholder);
         this.initialized = true;
         setTimeout(()=>{
           this.questionChoicesPlaceholder.forEach((qc) => {
-            console.log(qc);
+            //console.log(qc);
             qc.value$.subscribe((value) => {
-              console.log('Value change: ', value);
+              //console.log('Value change: ', value);
               this.formControl.setValue(value);
               this.unselectAll();
               qc.color = value ? 'primary' : '';
