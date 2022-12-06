@@ -10,28 +10,29 @@ import { QuestionChoiceComponent } from '../../child-components/question-choice/
   styleUrls: ['./single-choice-question.component.scss'],
   providers: [returnProvider(SingleChoiceQuestionComponent)]
 })
-export class SingleChoiceQuestionComponent implements OnInit, AfterContentInit, Base {
+export class SingleChoiceQuestionComponent extends Base implements OnInit, AfterContentInit {
 
-  @ContentChildren(forwardRef(()=> QuestionChoiceComponent), {descendants: true}) questionChoices! : QueryList<QuestionChoiceComponent>;
-
-  id!: number;
-  input = new FormControl('');
+  @ContentChildren(forwardRef(() => QuestionChoiceComponent), { descendants: true }) questionChoices!: QueryList<QuestionChoiceComponent>;
 
   constructor(public ngxs: NgxFormsService) {
+    super();
+    this.input = new FormControl('');
     this.id = this.ngxs.appendSection();
     this.ngxs.appendControl(this.input);
 
   }
 
   ngAfterContentInit(): void {
-    this.questionChoices.forEach(qc => qc.value$.subscribe(value => {
+    this.questionChoices.forEach((qc, index, self) => qc.value$.subscribe(value => {
+      if (self.some(qc => qc.firstChoiceSelected && !this.input.touched))
+        this.input.markAllAsTouched();
       this.input.setValue(value);
       this.unselectAll();
       qc.color = value ? 'primary' : '';
     }));
   }
 
-  unselectAll(){
+  unselectAll() {
     this.questionChoices.forEach(qc => qc.color = '');
   }
 
