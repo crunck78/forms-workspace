@@ -1,5 +1,5 @@
 import { AfterContentChecked, AfterContentInit, Component, ContentChild, ElementRef, forwardRef, Input, OnDestroy, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, switchMap } from 'rxjs';
 import { QuestionChoiceValueDirective } from './question-choice-value.directive';
 
 @Component({
@@ -10,8 +10,10 @@ import { QuestionChoiceValueDirective } from './question-choice-value.directive'
 export class QuestionChoiceComponent implements AfterContentInit {
 
   value$ = new BehaviorSubject<string>('');
+  //value$ = new Observable<string>();
   value! : string;
   color! : string;
+  firstChoiceSelected = false;
 
   @ContentChild(forwardRef(()=> QuestionChoiceValueDirective) , {descendants: true}) valueDirective! : any;
 
@@ -21,6 +23,8 @@ export class QuestionChoiceComponent implements AfterContentInit {
   }
 
   select(){
+    if(!this.firstChoiceSelected)
+      this.firstChoiceSelected = true;
     if(this.color == 'primary')
       this.value$.next('');
     else
