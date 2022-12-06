@@ -9,15 +9,14 @@ import { Base, returnProvider } from '../../../ngx-question.model';
   styleUrls: ['./input-question.component.scss'],
   providers: [returnProvider(InputQuestionComponent)]
 })
-export class InputQuestionComponent implements OnInit, Base {
+export class InputQuestionComponent extends Base implements OnInit {
 
-  id!: number;
-  input = new FormControl('');
   @Input() placeholder: string = "Input";
 
   constructor(public ngxs: NgxFormsService) {
+    super();
+    this.input = new FormControl('');
     this.id = this.ngxs.appendSection();
-
   }
 
   ngOnInit(): void {
