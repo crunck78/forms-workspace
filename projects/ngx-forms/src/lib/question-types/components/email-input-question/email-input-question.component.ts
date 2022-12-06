@@ -9,16 +9,16 @@ import { Base, returnProvider } from '../../../ngx-question.model';
   styleUrls: ['./email-input-question.component.scss'],
   providers: [returnProvider(EmailInputQuestionComponent)]
 })
-export class EmailInputQuestionComponent implements OnInit, Base {
+export class EmailInputQuestionComponent extends Base implements OnInit {
 
-  id!: number;
-  input = new FormControl('');
+
   @Input() placeholder: string  = "example@mail.com";
 
   constructor(public ngxs: NgxFormsService) {
+    super();
+    this.input = new FormControl('');
     this.id = this.ngxs.appendSection();
   }
-
 
   ngOnInit(): void {
     this.ngxs.appendControl(this.input);
