@@ -10,25 +10,25 @@ import { QuestionChoiceComponent } from '../../child-components/question-choice/
   styleUrls: ['./multiple-choice-question.component.scss'],
   providers: [returnProvider(MultipleChoiceQuestionComponent)]
 })
-export class MultipleChoiceQuestionComponent implements OnInit, AfterContentInit, Base {
+export class MultipleChoiceQuestionComponent extends Base implements OnInit, AfterContentInit {
 
-  @ContentChildren(forwardRef(()=> QuestionChoiceComponent), {descendants: true}) questionChoices! : QueryList<QuestionChoiceComponent>;
-
-  id!: number;
-  input = new FormArray<FormControl>([]);
+  @ContentChildren(forwardRef(() => QuestionChoiceComponent), { descendants: true }) questionChoices!: QueryList<QuestionChoiceComponent>;
 
   constructor(public ngxs: NgxFormsService) {
+    super();
+    this.input = new FormArray<FormControl>([]);
     this.id = this.ngxs.appendSection();
     this.ngxs.appendControl(this.input);
-
   }
 
   ngAfterContentInit(): void {
-    this.questionChoices.forEach((qc, index) => {
-      this.input.push(new FormControl(''));
+    this.questionChoices.forEach((qc, index, self) => {
+      (this.input as FormArray).push(new FormControl(''));
 
       qc.value$.subscribe(value => {
-        this.input.controls[index].setValue(value);
+        if (self.some(qc => qc.firstChoiceSelected && !this.input.touched))
+          this.input.markAllAsTouched();
+        (this.input as FormArray).controls[index].setValue(value);
         qc.color = value ? 'primary' : '';
       });
     });
