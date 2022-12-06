@@ -30,11 +30,13 @@ export class NgxFormsService {
   }
 
   previous() {
-    this.currentSection$.next(--this.currentSection);
+    if(this.currentSection > 1)
+      this.currentSection$.next(--this.currentSection);
   }
 
   next() {
-    this.currentSection$.next(++this.currentSection);
+    if(this.currentSection < this.sections.length)
+      this.currentSection$.next(++this.currentSection);
   }
 
   appendControl(control: FormControl | FormArray) {
