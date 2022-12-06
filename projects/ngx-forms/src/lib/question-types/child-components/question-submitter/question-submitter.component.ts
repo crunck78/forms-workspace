@@ -11,7 +11,7 @@ export class QuestionSubmitterComponent implements OnChanges {
 
   constructor(public ngxs: NgxFormsService) { }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
+    //console.log(changes);
   }
 
   @Output() onOk = new EventEmitter();
