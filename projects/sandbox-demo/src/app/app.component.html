@@ -7,17 +7,20 @@
     This is A No Question Card.
   </lib-no-question>
 
-  <lib-phone-input-question [libNgxValidators]="[[Validators.required], [Validators.required]]"
-    [placeholder]="'12345678901'">
+  <lib-phone-input-question [libNgxQuestionInvalid]="{
+      pattern: 'Your Phone-Number does not Look right!',
+      required: 'We really need to know your Phone!'
+    }" [libNgxValidators]="[[Validators.required], [Validators.required]]" [placeholder]="'12345678901'">
     <p questionTitle>
       What is your Phone Number?
     </p>
     This is A Phone Number Question Card.
   </lib-phone-input-question>
 
-  <lib-email-input-question
-    [libNgxQuestionInvalid]="{email: 'Your Email does not Look like an Email Address', required: 'We realy need to know your Email!'}"
-    [libNgxValidators]="[Validators.required, Validators.email]" [placeholder]="'example@mail.com'">
+  <lib-email-input-question [libNgxQuestionInvalid]="{
+      email: 'Your Email does not Look like an Email Address',
+      required: 'We really need to know your Email!'
+    }" [libNgxValidators]="[Validators.required, Validators.email]" [placeholder]="'example@mail.com'">
     <p questionTitle>
       What is your Email?
     </p>
@@ -31,7 +34,9 @@
     This is Boolean Choice Question
   </lib-boolean-choice-question> -->
 
-  <lib-single-choice-question [libNgxValidators]="[Validators.required]">
+  <lib-single-choice-question [libNgxQuestionInvalid]="{
+    required: 'Your really need to chose an option!'
+  }" [libNgxValidators]="[Validators.required]">
     <p questionTitle>
       Pick one of your Favorite.
     </p>
@@ -56,7 +61,9 @@
     </div>
   </lib-single-choice-question>
 
-  <lib-multiple-choice-question [libNgxValidators]="[Validators.requiredOneSelection()]">
+  <lib-multiple-choice-question [libNgxQuestionInvalid]="{
+      noSelection: 'Your really need to chose at least an option!'
+    }" [libNgxValidators]="[Validators.requiredOneSelection()]">
     <p questionTitle>
       Pick all your favorites.
     </p>
@@ -81,14 +88,20 @@
     </div>
   </lib-multiple-choice-question>
 
-  <lib-text-question [libNgxValidators]="[Validators.required]">
+  <lib-text-question [libNgxQuestionInvalid]="{
+      required: 'We really want to know your thoughts!'
+    }" [libNgxValidators]="[Validators.required]"
+    [placeholder]="'What are you thinking about?'">
     <p questionTitle>
       Tell us what are you thinking?
     </p>
     This is a Text Question. A Multiple Line Text Input.
   </lib-text-question>
 
-  <lib-input-question [libNgxValidators]="[Validators.required]">
+  <lib-input-question [libNgxQuestionInvalid]="{
+      required: 'We really need to know your Name!'
+    }" [libNgxValidators]="[Validators.required]"
+    [placeholder]="'What is your Name?'">
     <p questionTitle>
       What is your Name?
     </p>
