@@ -5,7 +5,9 @@
     "@angular/common": "^14.2.0",
     "@angular/core": "^14.2.0",
     "@angular/cdk": "~13.0.0-next.7+89.sha-a662737",
-    "@angular/material": "~13.0.0-next.7+89.sha-a662737"
+    "@angular/material": "~13.0.0-next.7+89.sha-a662737",
+    "libphonenumber-js": "^1.10.11",
+    "ngx-mat-intl-tel-input": "^5.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
