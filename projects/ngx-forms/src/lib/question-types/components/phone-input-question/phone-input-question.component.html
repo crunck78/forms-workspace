@@ -33,13 +33,16 @@
                 <mat-label>{{placeholder}}</mat-label>
                 <input (input)="handleInputPhoneNumber($any($event))" [formControl]="$any(input).controls[1]" matInput
                     type="tel" pattern="^-?(0|[1-9]\d*)?$">
-                <mat-error *ngIf="input.invalid && invalidMessages">{{getErrorMessage($any(input).controls[1])}}</mat-error>
+                <mat-error
+                    *ngIf="input.invalid && invalidMessages">{{getErrorMessage($any(input).controls[1])}}</mat-error>
             </mat-form-field>
         </div>
 
 
         <mat-card-actions align="start">
-            <lib-question-submitter [ngxInput]="input"></lib-question-submitter>
+            <lib-question-submitter [ngxInput]="input">
+                <ng-content select="[questionSubmitName]"></ng-content>
+            </lib-question-submitter>
         </mat-card-actions>
     </mat-card>
 </div>

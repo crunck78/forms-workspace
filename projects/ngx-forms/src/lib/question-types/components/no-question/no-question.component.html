@@ -12,7 +12,9 @@
         </mat-card-content>
 
         <mat-card-actions align="start">
-            <lib-question-submitter></lib-question-submitter>
+            <lib-question-submitter>
+                <ng-content select="[questionSubmitName]"></ng-content>
+            </lib-question-submitter>
         </mat-card-actions>
     </mat-card>
 </div>
