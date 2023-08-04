@@ -8,6 +8,14 @@
     <span questionSubmitName>Let's Go</span>
   </lib-no-question>
 
+  <lib-boolean-choice-question>
+    <p questionTitle>
+      Hello World!
+    </p>
+    This is A Yes/No Question Card.
+    <span questionSubmitName>Ok</span>
+  </lib-boolean-choice-question>
+
   <lib-phone-input-question [libNgxQuestionInvalid]="{
       pattern: 'Your Phone-Number does not Look right!',
       required: 'We really need to know your Phone!'
@@ -68,7 +76,7 @@
 
   <lib-multiple-choice-question [libNgxQuestionInvalid]="{
       noSelection: 'Your really need to chose at least an option!'
-    }" [libNgxValidators]="[Validators.requiredOneSelection()]">
+    }" [libNgxValidators]="[Validators.requiredOneSelection]">
     <p questionTitle>
       Pick all your favorites.
     </p>

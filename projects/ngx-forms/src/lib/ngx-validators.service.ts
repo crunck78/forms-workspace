@@ -4,17 +4,14 @@ import { AbstractControl, FormArray, FormControl, ValidationErrors, ValidatorFn,
 class CustomValidators extends Validators {
 
   /**
-   * Requires at lest one Controls of a FormArray to have a non empty string value
-   */
-  static requiredOneSelection(): ValidatorFn {
-    return (formArray: AbstractControl): ValidationErrors | null => {
+  * Requires at lest one Controls of a FormArray to have a non empty string value
+  */
+  static requiredOneSelection(formArray: FormArray): ValidationErrors | null {
 
-      const noSelection = (controls: any) => {
-        return !controls.find((control: any) => control.value !== '');
-      };
-
-      return noSelection((formArray as FormArray)['controls']) ? { noSelection: true } as ValidationErrors : null;
+    const noSelection = (controls: AbstractControl[]) => {
+      return !controls.find((control: AbstractControl) => control.value !== null);
     };
+    return (noSelection(formArray.controls) ? { noSelection: true } : null);
   }
 }
 
