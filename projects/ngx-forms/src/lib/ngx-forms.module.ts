@@ -75,7 +75,7 @@ import { NgxQuestionInvalidDirective } from './ngx-question-invalid.directive';
 
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     NgxFormsComponent,

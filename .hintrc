@@ -1,0 +1,8 @@
+{
+    "extends": [
+        "web-recommended"
+    ],
+    "hints": {
+        "css-prefix-order": "error"
+    }
+}
