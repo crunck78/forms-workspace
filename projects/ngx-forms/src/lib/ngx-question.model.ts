@@ -1,5 +1,5 @@
-import { forwardRef } from "@angular/core";
-import { FormArray, FormControl } from "@angular/forms";
+import { Component, EventEmitter, forwardRef, Output } from "@angular/core";
+import { AbstractControl, FormArray, FormControl } from "@angular/forms";
 
 interface InvalidMessages{
   required?: string;
@@ -8,10 +8,15 @@ interface InvalidMessages{
   noSelection?: string;
 }
 
+@Component({
+  template: ''
+})
 export abstract class Base {
   input!: FormControl | FormArray;
   id!: number;
   invalidMessages!: InvalidMessages;
+
+  @Output() onInputChange = new EventEmitter<AbstractControl>();
 
   getErrorMessage(input : FormControl | FormArray){
     console.log(input);
