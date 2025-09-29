@@ -28,7 +28,7 @@ export class QuestionChoiceComponent implements AfterContentInit {
     if(this.color == 'primary')
       this.value$.next('');
     else
-    this.value$.next(this.value);
+      this.value$.next(this.value);
     //this.color = 'primary';
   }
 
