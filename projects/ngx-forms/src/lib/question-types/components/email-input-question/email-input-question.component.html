@@ -1,27 +1,27 @@
 <!-- <lib-question-header></lib-question-header> -->
-<div libNgxForms *ngIf="(ngxs.currentSection$ | async) == id" class="question-wrapper">
+@if ((ngxs.currentSection$ | async) == id) {
+  <div libNgxForms class="question-wrapper">
     <mat-card>
-        <mat-card-title>
-            <lib-question-title [id]="id">
-                <ng-content select="[questionTitle]"></ng-content>
-            </lib-question-title>
-        </mat-card-title>
-
-        <mat-card-content>
-            <ng-content></ng-content>
-        </mat-card-content>
-
-        <mat-form-field>
-            <mat-label>{{placeholder}}</mat-label>
-            <input [formControl]="$any(input)" matInput type="email">
-            <mat-error *ngIf="input.invalid && invalidMessages">{{getErrorMessage(input)}}</mat-error>
-        </mat-form-field>
-
-
-        <mat-card-actions align="start">
-            <lib-question-submitter [ngxInput]="input">
-                <ng-content select="[questionSubmitName]"></ng-content>
-            </lib-question-submitter>
-        </mat-card-actions>
+      <mat-card-title>
+        <lib-question-title [id]="id">
+          <ng-content select="[questionTitle]"></ng-content>
+        </lib-question-title>
+      </mat-card-title>
+      <mat-card-content>
+        <ng-content></ng-content>
+      </mat-card-content>
+      <mat-form-field>
+        <mat-label>{{placeholder}}</mat-label>
+        <input [formControl]="$any(input)" matInput type="email">
+        @if (input.invalid && invalidMessages) {
+          <mat-error>{{getErrorMessage(input)}}</mat-error>
+        }
+      </mat-form-field>
+      <mat-card-actions align="start">
+        <lib-question-submitter [ngxInput]="input">
+          <ng-content select="[questionSubmitName]"></ng-content>
+        </lib-question-submitter>
+      </mat-card-actions>
     </mat-card>
-</div>
+  </div>
+}

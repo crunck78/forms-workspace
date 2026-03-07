@@ -1,22 +1,22 @@
 <!-- <lib-question-header></lib-question-header> -->
-<div libNgxForms *ngIf="ngxs.currentSection == id" class="question-wrapper">
+@if (ngxs.currentSection == id) {
+  <div libNgxForms class="question-wrapper">
     <mat-card>
-        <mat-card-title>
-            <lib-question-title [id]="id">
-                <ng-content select="[questionTitle]"></ng-content>
-            </lib-question-title>
-        </mat-card-title>
-
-        <mat-card-content>
-            <ng-content></ng-content>
-        </mat-card-content>
-
-        <mat-card-actions align="start">
-            <lib-question-submitter>
-                <ng-content select="[questionSubmitName]"></ng-content>
-            </lib-question-submitter>
-        </mat-card-actions>
+      <mat-card-title>
+        <lib-question-title [id]="id">
+          <ng-content select="[questionTitle]"></ng-content>
+        </lib-question-title>
+      </mat-card-title>
+      <mat-card-content>
+        <ng-content></ng-content>
+      </mat-card-content>
+      <mat-card-actions align="start">
+        <lib-question-submitter>
+          <ng-content select="[questionSubmitName]"></ng-content>
+        </lib-question-submitter>
+      </mat-card-actions>
     </mat-card>
-</div>
+  </div>
+}
 
 <!-- <lib-question-footer></lib-question-footer> -->

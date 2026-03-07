@@ -1,33 +1,32 @@
 <!-- <lib-question-header></lib-question-header> -->
-<div libNgxForms *ngIf="(ngxs.currentSection$ | async) == id" class="question-wrapper">
+@if ((ngxs.currentSection$ | async) == id) {
+  <div libNgxForms class="question-wrapper">
     <mat-card>
-        <mat-card-title>
-            <lib-question-title [id]="id">
-                <ng-content select="[questionTitle]"></ng-content>
-            </lib-question-title>
-        </mat-card-title>
-
-        <mat-card-content>
-            <ng-content></ng-content>
-        </mat-card-content>
-
-        <div questionChoices>
-          <lib-question-choice>
-            <p libQuestionChoiceValue>
-              Yes
-            </p>
-          </lib-question-choice>
-          <lib-question-choice>
-            <p libQuestionChoiceValue>
-              No
-            </p>
-          </lib-question-choice>
-        </div>
-
-        <mat-card-actions align="start">
-            <lib-question-submitter>
-                <ng-content select="[questionSubmitName]"></ng-content>
-            </lib-question-submitter>
-        </mat-card-actions>
+      <mat-card-title>
+        <lib-question-title [id]="id">
+          <ng-content select="[questionTitle]"></ng-content>
+        </lib-question-title>
+      </mat-card-title>
+      <mat-card-content>
+        <ng-content></ng-content>
+      </mat-card-content>
+      <div questionChoices>
+        <lib-question-choice>
+          <p libQuestionChoiceValue>
+            Yes
+          </p>
+        </lib-question-choice>
+        <lib-question-choice>
+          <p libQuestionChoiceValue>
+            No
+          </p>
+        </lib-question-choice>
+      </div>
+      <mat-card-actions align="start">
+        <lib-question-submitter>
+          <ng-content select="[questionSubmitName]"></ng-content>
+        </lib-question-submitter>
+      </mat-card-actions>
     </mat-card>
-</div>
+  </div>
+}

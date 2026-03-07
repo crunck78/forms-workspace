@@ -1,4 +1,6 @@
 <button [disabled]="ngxInput.invalid || ngxInput.disabled" (click)="ngxs.next()" mat-raised-button>
-    <ng-content></ng-content>
-    <mat-icon *ngIf="ngxInput.valid">check</mat-icon>
+  <ng-content></ng-content>
+  @if (ngxInput.valid) {
+    <mat-icon>check</mat-icon>
+  }
 </button>
