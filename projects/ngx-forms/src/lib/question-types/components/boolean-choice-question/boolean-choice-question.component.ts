@@ -4,9 +4,10 @@ import { NgxFormsService } from '../../../ngx-forms.service';
 import { QuestionChoiceComponent } from '../../child-components/question-choice/question-choice.component';
 
 @Component({
-  selector: 'lib-boolean-choice-question',
-  templateUrl: './boolean-choice-question.component.html',
-  styleUrls: ['./boolean-choice-question.component.scss']
+    selector: 'lib-boolean-choice-question',
+    templateUrl: './boolean-choice-question.component.html',
+    styleUrls: ['./boolean-choice-question.component.scss'],
+    standalone: false
 })
 export class BooleanChoiceQuestionComponent implements OnInit, AfterViewInit {
 

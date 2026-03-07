@@ -5,10 +5,11 @@ import { Base, returnProvider } from '../../../ngx-question.model';
 
 
 @Component({
-  selector: 'lib-text-question',
-  templateUrl: './text-question.component.html',
-  styleUrls: ['./text-question.component.scss'],
-  providers: [returnProvider(TextQuestionComponent)]
+    selector: 'lib-text-question',
+    templateUrl: './text-question.component.html',
+    styleUrls: ['./text-question.component.scss'],
+    providers: [returnProvider(TextQuestionComponent)],
+    standalone: false
 })
 export class TextQuestionComponent extends Base implements OnInit {
 

@@ -9,10 +9,11 @@ import { COUNTRY_CODES } from './country-codes';
 
 
 @Component({
-  selector: 'lib-phone-input-question',
-  templateUrl: './phone-input-question.component.html',
-  styleUrls: ['./phone-input-question.component.scss'],
-  providers: [returnProvider(PhoneInputQuestionComponent)]
+    selector: 'lib-phone-input-question',
+    templateUrl: './phone-input-question.component.html',
+    styleUrls: ['./phone-input-question.component.scss'],
+    providers: [returnProvider(PhoneInputQuestionComponent)],
+    standalone: false
 })
 export class PhoneInputQuestionComponent extends Base implements OnInit {
 

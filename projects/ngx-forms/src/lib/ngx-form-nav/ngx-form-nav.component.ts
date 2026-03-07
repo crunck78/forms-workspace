@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NgxFormsService } from '../ngx-forms.service';
 
 @Component({
-  selector: 'lib-ngx-form-nav',
-  templateUrl: './ngx-form-nav.component.html',
-  styleUrls: ['./ngx-form-nav.component.scss']
+    selector: 'lib-ngx-form-nav',
+    templateUrl: './ngx-form-nav.component.html',
+    styleUrls: ['./ngx-form-nav.component.scss'],
+    standalone: false
 })
 export class NgxFormNavComponent implements OnInit {
 

@@ -1,7 +1,8 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[libSingleChoiceQuestion]'
+    selector: '[libSingleChoiceQuestion]',
+    standalone: false
 })
 export class SingleChoiceQuestionDirective {
 

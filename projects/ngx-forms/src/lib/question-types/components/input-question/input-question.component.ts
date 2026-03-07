@@ -4,10 +4,11 @@ import { NgxFormsService } from '../../../ngx-forms.service';
 import { Base, returnProvider } from '../../../ngx-question.model';
 
 @Component({
-  selector: 'lib-input-question',
-  templateUrl: './input-question.component.html',
-  styleUrls: ['./input-question.component.scss'],
-  providers: [returnProvider(InputQuestionComponent)]
+    selector: 'lib-input-question',
+    templateUrl: './input-question.component.html',
+    styleUrls: ['./input-question.component.scss'],
+    providers: [returnProvider(InputQuestionComponent)],
+    standalone: false
 })
 export class InputQuestionComponent extends Base implements OnInit {
 

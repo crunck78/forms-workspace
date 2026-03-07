@@ -3,9 +3,10 @@ import { FormArray, FormControl } from '@angular/forms';
 import { NgxFormsService } from '../../../ngx-forms.service';
 
 @Component({
-  selector: 'lib-question-submitter',
-  templateUrl: './question-submitter.component.html',
-  styleUrls: ['./question-submitter.component.scss']
+    selector: 'lib-question-submitter',
+    templateUrl: './question-submitter.component.html',
+    styleUrls: ['./question-submitter.component.scss'],
+    standalone: false
 })
 export class QuestionSubmitterComponent implements OnChanges {
 

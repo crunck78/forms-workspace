@@ -51,12 +51,15 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/sandbox-demo",
+            "outputPath": {
+              "base": "dist/sandbox-demo"
+            },
             "index": "projects/sandbox-demo/src/index.html",
-            "main": "projects/sandbox-demo/src/main.ts",
-            "polyfills": "projects/sandbox-demo/src/polyfills.ts",
+            "polyfills": [
+              "projects/sandbox-demo/src/polyfills.ts"
+            ],
             "tsConfig": "projects/sandbox-demo/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "preserveSymlinks": true,
@@ -83,7 +86,8 @@
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/sandbox-demo/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "browser": "projects/sandbox-demo/src/main.ts"
           },
           "configurations": {
             "production": {
@@ -109,9 +113,7 @@
             },
             "development": {
               "preserveSymlinks": true,
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true

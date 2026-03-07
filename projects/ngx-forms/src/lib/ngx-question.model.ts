@@ -9,7 +9,8 @@ interface InvalidMessages{
 }
 
 @Component({
-  template: ''
+    template: '',
+    standalone: false
 })
 export abstract class Base {
   input!: FormControl | FormArray;

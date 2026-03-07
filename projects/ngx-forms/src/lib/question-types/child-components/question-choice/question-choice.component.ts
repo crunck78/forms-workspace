@@ -3,9 +3,10 @@ import { BehaviorSubject, Observable, switchMap } from 'rxjs';
 import { QuestionChoiceValueDirective } from './question-choice-value.directive';
 
 @Component({
-  selector: 'lib-question-choice',
-  templateUrl: './question-choice.component.html',
-  styleUrls: ['./question-choice.component.scss']
+    selector: 'lib-question-choice',
+    templateUrl: './question-choice.component.html',
+    styleUrls: ['./question-choice.component.scss'],
+    standalone: false
 })
 export class QuestionChoiceComponent implements AfterContentInit {
 

@@ -5,10 +5,11 @@ import { Base, returnProvider } from '../../../ngx-question.model';
 import { QuestionChoiceComponent } from '../../child-components/question-choice/question-choice.component';
 
 @Component({
-  selector: 'lib-single-choice-question',
-  templateUrl: './single-choice-question.component.html',
-  styleUrls: ['./single-choice-question.component.scss'],
-  providers: [returnProvider(SingleChoiceQuestionComponent)]
+    selector: 'lib-single-choice-question',
+    templateUrl: './single-choice-question.component.html',
+    styleUrls: ['./single-choice-question.component.scss'],
+    providers: [returnProvider(SingleChoiceQuestionComponent)],
+    standalone: false
 })
 export class SingleChoiceQuestionComponent extends Base implements OnInit, AfterContentInit {
 

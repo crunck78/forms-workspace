@@ -5,7 +5,8 @@ import { MultipleChoiceQuestionComponent } from './question-types/components/mul
 
 
 @Directive({
-  selector: '[libNgxValidators]'
+    selector: '[libNgxValidators]',
+    standalone: false
 })
 export class NgxValidatorsDirective implements OnChanges {
 

@@ -1,7 +1,8 @@
 import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
-  selector: '[libQuestionChoiceValue]'
+    selector: '[libQuestionChoiceValue]',
+    standalone: false
 })
 export class QuestionChoiceValueDirective {
 

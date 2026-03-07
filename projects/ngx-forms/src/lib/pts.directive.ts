@@ -2,7 +2,8 @@ import { Directive, ElementRef } from '@angular/core';
 import { CanvasForm, CanvasSpace, Create, Group, Const, Circle } from 'pts';
 
 @Directive({
-  selector: '[libPts]'
+    selector: '[libPts]',
+    standalone: false
 })
 export class PtsDirective {
   space!: CanvasSpace;

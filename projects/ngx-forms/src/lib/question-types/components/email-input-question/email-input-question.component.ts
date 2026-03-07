@@ -4,10 +4,11 @@ import { NgxFormsService } from '../../../ngx-forms.service';
 import { Base, returnProvider } from '../../../ngx-question.model';
 
 @Component({
-  selector: 'lib-email-input-question',
-  templateUrl: './email-input-question.component.html',
-  styleUrls: ['./email-input-question.component.scss'],
-  providers: [returnProvider(EmailInputQuestionComponent)]
+    selector: 'lib-email-input-question',
+    templateUrl: './email-input-question.component.html',
+    styleUrls: ['./email-input-question.component.scss'],
+    providers: [returnProvider(EmailInputQuestionComponent)],
+    standalone: false
 })
 export class EmailInputQuestionComponent extends Base implements OnInit {
 

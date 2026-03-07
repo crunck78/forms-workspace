@@ -2,7 +2,8 @@ import { Directive, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Base } from './ngx-question.model';
 
 @Directive({
-  selector: '[libNgxQuestionInvalid]'
+    selector: '[libNgxQuestionInvalid]',
+    standalone: false
 })
 export class NgxQuestionInvalidDirective implements OnChanges {
 

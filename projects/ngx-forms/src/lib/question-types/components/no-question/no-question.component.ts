@@ -3,9 +3,10 @@ import { FormControl } from '@angular/forms';
 import { NgxFormsService } from '../../../ngx-forms.service';
 
 @Component({
-  selector: 'lib-no-question',
-  templateUrl: './no-question.component.html',
-  styleUrls: ['./no-question.component.scss']
+    selector: 'lib-no-question',
+    templateUrl: './no-question.component.html',
+    styleUrls: ['./no-question.component.scss'],
+    standalone: false
 })
 export class NoQuestionComponent implements OnInit {
 

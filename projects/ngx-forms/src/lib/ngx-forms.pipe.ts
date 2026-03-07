@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'ngxForms'
+    name: 'ngxForms',
+    standalone: false
 })
 export class NgxFormsPipe implements PipeTransform {
 
