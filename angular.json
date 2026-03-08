@@ -58,6 +58,15 @@
             "tsConfig": "projects/ngx-forms/tsconfig.spec.json",
             "karmaConfig": "projects/ngx-forms/karma.conf.js"
           }
+        },
+        "lint": {
+        "builder": "@angular-eslint/builder:lint",
+        "options": {
+          "lintFilePatterns": [
+            "projects/ngx-forms/**/*.ts",
+            "projects/ngx-forms/**/*.html"
+          ]
+        }
         }
       }
     },
@@ -188,6 +197,15 @@
               "projects/sandbox-demo/src/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/sandbox-demo/**/*.ts",
+              "projects/sandbox-demo/**/*.html"
+            ]
           }
         }
       }

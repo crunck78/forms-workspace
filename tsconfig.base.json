@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "paths": {
-      "ngx-forms": [
-        "./dist/ngx-forms"
-      ]
-    }
-  }
-}
