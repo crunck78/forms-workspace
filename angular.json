@@ -154,6 +154,11 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "prebundle": {
+              "exclude": ["ngx-forms"]
+            }
+          },
           "configurations": {
             "production": {
               "buildTarget": "sandbox-demo:build:production"

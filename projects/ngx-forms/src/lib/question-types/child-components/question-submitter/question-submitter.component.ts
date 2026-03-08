@@ -1,19 +1,19 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, inject } from '@angular/core';
 import { FormArray, FormControl } from '@angular/forms';
 import { NgxFormsService } from '../../../ngx-forms.service';
+import { MatButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
     selector: 'lib-question-submitter',
     templateUrl: './question-submitter.component.html',
     styleUrls: ['./question-submitter.component.scss'],
-    standalone: false
+    imports: [MatButton, MatIcon]
 })
-export class QuestionSubmitterComponent implements OnChanges {
+export class QuestionSubmitterComponent {
+  
+  ngxs = inject(NgxFormsService);
 
-  constructor(public ngxs: NgxFormsService) { }
-  ngOnChanges(changes: SimpleChanges): void {
-    //console.log(changes);
-  }
 
   @Output() onOk = new EventEmitter();
   @Input() ngxInput : FormControl | FormArray = new FormControl('');

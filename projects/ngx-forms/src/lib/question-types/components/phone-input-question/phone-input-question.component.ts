@@ -1,10 +1,16 @@
 
-import { Component, Input, OnInit } from '@angular/core';
-import { FormArray, FormControl, Validators } from '@angular/forms';
-import { MatSelectChange } from '@angular/material/select';
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { FormArray, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectChange, MatSelect, MatOption } from '@angular/material/select';
 import { NgxFormsService } from '../../../ngx-forms.service';
 import { Base, returnProvider } from '../../../ngx-question.model';
 import { COUNTRY_CODES } from './country-codes';
+import { NgxFormsDirective } from '../../../ngx-forms.directive';
+import { MatCard, MatCardTitle, MatCardContent, MatCardActions } from '@angular/material/card';
+import { QuestionTitleComponent } from '../../child-components/question-title/question-title.component';
+import { MatFormField, MatLabel, MatInput, MatError } from '@angular/material/input';
+import { QuestionSubmitterComponent } from '../../child-components/question-submitter/question-submitter.component';
+import { AsyncPipe } from '@angular/common';
 
 
 
@@ -13,15 +19,17 @@ import { COUNTRY_CODES } from './country-codes';
     templateUrl: './phone-input-question.component.html',
     styleUrls: ['./phone-input-question.component.scss'],
     providers: [returnProvider(PhoneInputQuestionComponent)],
-    standalone: false
+    imports: [NgxFormsDirective, MatCard, MatCardTitle, QuestionTitleComponent, MatCardContent, MatFormField, MatLabel, MatSelect, FormsModule, ReactiveFormsModule, MatOption, MatInput, MatError, MatCardActions, QuestionSubmitterComponent, AsyncPipe]
 })
 export class PhoneInputQuestionComponent extends Base implements OnInit {
+  ngxs = inject(NgxFormsService);
+
 
 
   @Input() placeholder: string = "1234567890";
   readonly COUNTRY_CODES = COUNTRY_CODES;
 
-  constructor(public ngxs: NgxFormsService) {
+  constructor() {
     super();
     this.input = new FormArray([
       new FormControl('+49'),

@@ -1,16 +1,15 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef, inject } from '@angular/core';
 import { CanvasForm, CanvasSpace, Create, Group, Const, Circle } from 'pts';
 
-@Directive({
-    selector: '[libPts]',
-    standalone: false
-})
+@Directive({ selector: '[libPts]' })
 export class PtsDirective {
+  private canvas = inject<ElementRef<HTMLCanvasElement>>(ElementRef);
+
   space!: CanvasSpace;
   form!: CanvasForm;
   lines: Group[] = [];
 
-  constructor(private canvas: ElementRef<HTMLCanvasElement>) {
+  constructor() {
     this.initPtsSpace();
     this.drawGraphic();
   }

@@ -8,8 +8,8 @@ describe('NgxFormHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NgxFormHeaderComponent ]
-    })
+    imports: [NgxFormHeaderComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(NgxFormHeaderComponent);

@@ -1,11 +1,8 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef, inject } from '@angular/core';
 
-@Directive({
-    selector: '[libQuestionChoiceValue]',
-    standalone: false
-})
+@Directive({ selector: '[libQuestionChoiceValue]' })
 export class QuestionChoiceValueDirective {
-
-  constructor(private el: ElementRef) {}
+  
+  private el = inject(ElementRef);
 
 }

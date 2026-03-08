@@ -1,12 +1,13 @@
 import { AfterContentChecked, AfterContentInit, Component, ContentChild, ElementRef, forwardRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable, switchMap } from 'rxjs';
 import { QuestionChoiceValueDirective } from './question-choice-value.directive';
+import { MatButton } from '@angular/material/button';
 
 @Component({
     selector: 'lib-question-choice',
     templateUrl: './question-choice.component.html',
     styleUrls: ['./question-choice.component.scss'],
-    standalone: false
+    imports: [MatButton]
 })
 export class QuestionChoiceComponent implements AfterContentInit {
 

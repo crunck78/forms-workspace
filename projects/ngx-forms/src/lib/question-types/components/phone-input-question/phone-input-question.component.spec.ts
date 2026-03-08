@@ -8,8 +8,8 @@ describe('PhoneInputQuestionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PhoneInputQuestionComponent ]
-    })
+    imports: [PhoneInputQuestionComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(PhoneInputQuestionComponent);

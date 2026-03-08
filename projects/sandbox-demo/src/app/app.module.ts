@@ -1,24 +1,21 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { NgxFormsModule } from 'ngx-forms';
+import { NoQuestionComponent, NgxFormsComponent, BooleanChoiceQuestionComponent, PhoneInputQuestionComponent, NgxQuestionInvalidDirective, QuestionChoiceComponent, NgxValidatorsDirective, TextQuestionComponent, InputQuestionComponent, EmailInputQuestionComponent } from 'ngx-forms';
 
 @NgModule({
-    declarations: [
-        AppComponent
-    ],
     providers: [],
-    bootstrap: [AppComponent],
     imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        NgxFormsModule,
-    ]
+        NgxFormsComponent,
+        NoQuestionComponent,
+        BooleanChoiceQuestionComponent,
+        PhoneInputQuestionComponent,
+        QuestionChoiceComponent,
+        NgxQuestionInvalidDirective,
+        NgxValidatorsDirective,
+        TextQuestionComponent,
+        InputQuestionComponent,
+        EmailInputQuestionComponent
+    ],
+    exports: [NgxFormsComponent, NoQuestionComponent, BooleanChoiceQuestionComponent, PhoneInputQuestionComponent, QuestionChoiceComponent, NgxQuestionInvalidDirective, NgxValidatorsDirective, TextQuestionComponent, InputQuestionComponent, EmailInputQuestionComponent]
 })
 export class AppModule { }

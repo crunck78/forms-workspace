@@ -1,18 +1,15 @@
-import { Directive, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Directive, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
 import { FormArray } from '@angular/forms';
 import { Base } from './ngx-question.model';
 import { MultipleChoiceQuestionComponent } from './question-types/components/multiple-choice-question/multiple-choice-question.component';
 
 
-@Directive({
-    selector: '[libNgxValidators]',
-    standalone: false
-})
+@Directive({ selector: '[libNgxValidators]' })
 export class NgxValidatorsDirective implements OnChanges {
+  private comp = inject(Base);
+
 
   @Input() libNgxValidators!: any[];
-
-  constructor(private comp: Base) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (this.comp.input instanceof FormArray && !(this.comp instanceof MultipleChoiceQuestionComponent))

@@ -1,17 +1,15 @@
-import { Component } from '@angular/core';
-import { Validators } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { AppModule } from './app.module';
 import { NgxValidatorsService } from 'ngx-forms';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    standalone: false
+    imports: [AppModule]
 })
 export class AppComponent {
-  constructor(private ngxValidators : NgxValidatorsService){
-
-  }
+  private ngxValidators = inject(NgxValidatorsService);
   title = 'sandbox-demo';
   Validators = this.ngxValidators.Validators;
 }

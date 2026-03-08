@@ -1,18 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { NgxFormsService } from '../ngx-forms.service';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
     selector: 'lib-ngx-form-nav',
     templateUrl: './ngx-form-nav.component.html',
     styleUrls: ['./ngx-form-nav.component.scss'],
-    standalone: false
+    imports: [MatIcon]
 })
-export class NgxFormNavComponent implements OnInit {
+export class NgxFormNavComponent {
 
-  constructor(public ngxs : NgxFormsService) { }
-
-  ngOnInit(): void {
-  }
+  protected ngxs = inject(NgxFormsService);
 
   previousSection(){
     this.ngxs.previous();

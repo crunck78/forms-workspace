@@ -8,8 +8,8 @@ describe('NgxFormNavComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NgxFormNavComponent ]
-    })
+    imports: [NgxFormNavComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(NgxFormNavComponent);

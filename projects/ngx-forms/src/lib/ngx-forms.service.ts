@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 
@@ -6,6 +6,8 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class NgxFormsService {
+  private formBuilder = inject(FormBuilder);
+
 
   private static counter = 0;
 
@@ -15,7 +17,7 @@ export class NgxFormsService {
 
   formArray!: FormArray;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor() {
     this.currentSection$.subscribe((currentSection) => {
       //console.log(currentSection);
     });

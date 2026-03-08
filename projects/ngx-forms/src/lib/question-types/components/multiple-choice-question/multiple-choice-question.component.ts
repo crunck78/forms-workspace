@@ -1,21 +1,29 @@
-import { AfterContentInit, Component, ContentChildren, forwardRef, OnInit, QueryList } from '@angular/core';
+import { AfterContentInit, Component, ContentChildren, forwardRef, OnInit, QueryList, inject } from '@angular/core';
 import { FormArray, FormControl } from '@angular/forms';
 import { NgxFormsService } from '../../../ngx-forms.service';
 import { Base, returnProvider } from '../../../ngx-question.model';
 import { QuestionChoiceComponent } from '../../child-components/question-choice/question-choice.component';
+import { NgxFormsDirective } from '../../../ngx-forms.directive';
+import { MatCard, MatCardTitle, MatCardContent, MatCardActions } from '@angular/material/card';
+import { QuestionTitleComponent } from '../../child-components/question-title/question-title.component';
+import { MatError } from '@angular/material/input';
+import { QuestionSubmitterComponent } from '../../child-components/question-submitter/question-submitter.component';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
     selector: 'lib-multiple-choice-question',
     templateUrl: './multiple-choice-question.component.html',
     styleUrls: ['./multiple-choice-question.component.scss'],
     providers: [returnProvider(MultipleChoiceQuestionComponent)],
-    standalone: false
+    imports: [NgxFormsDirective, MatCard, MatCardTitle, QuestionTitleComponent, MatCardContent, MatError, MatCardActions, QuestionSubmitterComponent, AsyncPipe]
 })
-export class MultipleChoiceQuestionComponent extends Base implements OnInit, AfterContentInit {
+export class MultipleChoiceQuestionComponent extends Base implements AfterContentInit {
+  ngxs = inject(NgxFormsService);
+
 
   @ContentChildren(forwardRef(() => QuestionChoiceComponent), { descendants: true }) questionChoices!: QueryList<QuestionChoiceComponent>;
 
-  constructor(public ngxs: NgxFormsService) {
+  constructor() {
     super();
     this.input = new FormArray<FormControl>([]);
     this.id = this.ngxs.appendSection();
@@ -33,9 +41,6 @@ export class MultipleChoiceQuestionComponent extends Base implements OnInit, Aft
         qc.color = value ? 'primary' : '';
       });
     });
-  }
-
-  ngOnInit(): void {
   }
 
 }
